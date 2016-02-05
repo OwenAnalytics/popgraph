@@ -53,21 +53,21 @@ geom_nodeset<- function( mapping=NULL, graph=NULL, ... ) {
   if( !is.null(mapping$colour) & !is.null(mapping$size)){
     df$color <- get.vertex.attribute(graph,mapping$colour)
     df$size <- get.vertex.attribute(graph,mapping$size)
-    ret <- geom_point( aes(x=x,y=y,color=color,size=size), data=df, show_guide=FALSE, ... )
+    ret <- geom_point( aes(x=x,y=y,color=color,size=size), data=df, show_legend=FALSE, ... )
   }
   # size
   else if( !is.null(mapping$size)){
     df$size <- get.vertex.attribute(graph,mapping$size)
-    ret <- geom_point( aes(x=x,y=y,size=size), data=df, show_guide=FALSE, ... )
+    ret <- geom_point( aes(x=x,y=y,size=size), data=df, show_legend=FALSE, ... )
   }
   # color
   else if( !is.null(mapping$colour) ){
     df$colour <- get.vertex.attribute(graph,mapping$colour)
-    ret <- geom_point( aes(x=x,y=y,colour=colour), data=df, show_guide=FALSE, ... )
+    ret <- geom_point( aes(x=x,y=y,colour=colour), data=df, show_legend=FALSE, ... )
   }
   # none 
   else
-    ret <- geom_point( aes(x=x,y=y), data=df, show_guide=FALSE, ... )
+    ret <- geom_point( aes(x=x,y=y), data=df, show_legend=FALSE, ... )
   
   return( ret )
 

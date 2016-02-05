@@ -4,8 +4,11 @@
 popgraph.Rproj
 
 # Ignore the look of the readme markup
-README.html
+README.html*
 
+# ignore the man files
+*.Rd
+man/*
 
 # Example code in package build process
 *-Ex.R
