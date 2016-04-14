@@ -7,8 +7,8 @@ popgraph.Rproj
 README.html*
 
 # ignore the man files
-*.Rd
-man/*
+#*.Rd
+#man/*
 
 # Example code in package build process
 *-Ex.R
@@ -20,7 +20,7 @@ man/*
 popgraph.Rcheck
 popgraph_*.tar.gz
 popgraph_*.tgz
-*.Rd
+#*.Rd
 
 ggmapTemp.png
 index_files
