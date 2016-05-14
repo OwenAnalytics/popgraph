@@ -10,7 +10,7 @@ decorate_graph(graph, data, stratum = "Population")
 \item{graph}{An object of type \code{igraph} to populate}
 
 \item{data}{An object of type \code{data.frame} that has a Node column 
-that is the same as the V(graph)$name values.}
+that is the same as the \code{V(graph)$name} values.}
 
 \item{stratum}{The column name of node lables to match up with graph.stratum
 (default 'Population') to be matched with V(graph)$name attribute}

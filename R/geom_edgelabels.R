@@ -86,7 +86,7 @@ geom_edgelabels<- function( mapping=NULL, graph=NULL, directed=FALSE, offset=c(0
   vals <- format( vals, digits=4)
   df.lbls <- data.frame( X=(df$X1+df$X2)/2 + offset[1], Y=(df$Y1+df$Y2)/2 + offset[2], label=format(vals,digits=4) )
   
-  ret <-geom_text(aes(x=X,y=Y,label=label),data=df.lbls,...)
+  ret <- ggplot2::geom_text(aes(x=X,y=Y,label=label),data=df.lbls,...)
   
   return( ret )
   

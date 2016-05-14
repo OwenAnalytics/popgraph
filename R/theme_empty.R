@@ -23,7 +23,7 @@
 #' p
 #' 
 theme_empty <- function (base_size = 12, base_family = "Helvetica"){
-    theme(
+  ggplot2::theme(
       line = element_blank(), 
       rect = element_blank(), 
       axis.line = element_blank(), 

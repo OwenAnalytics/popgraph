@@ -36,7 +36,7 @@ to_SpatialLines <- function( graph, latitude="Latitude", longitude="Longitude", 
     colnames(coord) <- c("x","y")
     rownames( coord ) <- c( names[idx1], names[idx2] )
     edgeName <- paste( "Edge", names[idx1], names[idx2] )    
-    edgeList[edgeName] <- Lines( list( Line( coord )), ID=edgeName )
+    edgeList[[edgeName]] <- sp::Lines( list( sp::Line( coord )), ID=edgeName )
   }
   return( SpatialLines( edgeList ) )
 }

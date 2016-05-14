@@ -81,23 +81,23 @@ geom_edgeset<- function( mapping=NULL, graph=NULL, directed=FALSE, ... ) {
   if( !is.null(mapping$size) & (!is.null(mapping$color) | !is.null(mapping$colour))) {
     df$size <- get.edge.attribute(graph,mapping$size)
     df$color <- get.edge.attribute( graph, mapping$colour )
-    ret <- geom_segment( aes(x=X1,y=Y1,xend=X2,yend=Y2,size=size,color=color), data=df, ... )
+    ret <- ggplot2::geom_segment( aes(x=X1,y=Y1,xend=X2,yend=Y2,size=size,color=color), data=df, ... )
   }
   
   else if( !is.null(mapping$size) ) {
     df$size <- get.edge.attribute(graph,mapping$size)
-    ret <- geom_segment( aes(x=X1,y=Y1,xend=X2,yend=Y2,size=size), data=df, ... )
+    ret <- ggplot2::geom_segment( aes(x=X1,y=Y1,xend=X2,yend=Y2,size=size), data=df, ... )
   }
   
   else if( (!is.null(mapping$color) | !is.null(mapping$colour))) {
     lbl <- as.character( mapping$colour)
     df[[lbl]] <- get.edge.attribute( graph, mapping$colour )
     df <- df[ order(df[[lbl]]),]
-    ret <- geom_segment( aes_string(x="X1",y="Y1",xend="X2",yend="Y2",color=lbl), data=df, ... )
+    ret <- ggplot2::geom_segment( aes_string(x="X1",y="Y1",xend="X2",yend="Y2",color=lbl), data=df, ... )
   }
   
   else 
-    ret <- geom_segment( aes(x=X1,y=Y1,xend=X2,yend=Y2), data=df, ... )
+    ret <- ggplot2::geom_segment( aes(x=X1,y=Y1,xend=X2,yend=Y2), data=df, ... )
   
 
     
