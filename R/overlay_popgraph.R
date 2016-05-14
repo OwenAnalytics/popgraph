@@ -17,9 +17,9 @@ overlay_popgraph <- function( graph ){
   if( !("name" %in% list.vertex.attributes(graph)))
     stop("This function uses the 'name' property of the graph and it is missing.")
   
-  coords <- cbind(V(graph)$Longitude, V(graph)$Latitude )
-  nodes <- V(graph)$name
-  K <- length(V(graph))
+  coords <- cbind(igraph::V(graph)$Longitude, igraph::V(graph)$Latitude )
+  nodes <- igraph::V(graph)$name
+  K <- length(igraph::V(graph))
   
   
   # plot the edges, one at a time.
@@ -39,11 +39,11 @@ overlay_popgraph <- function( graph ){
   
   # plot the nodes
   if( !("color" %in% list.vertex.attributes(graph) ))
-    V(graph)$color <- "#dd7f4c"
-  points( coords, pch=16, col=V(graph)$color )
+    igraph::V(graph)$color <- "#dd7f4c"
+  points( coords, pch=16, col=igraph::V(graph)$color )
   
   # add the names
-  text( coords, V(graph)$name , cex=.75)
+  text( coords, igraph::V(graph)$name , cex=.75)
   
 
 }

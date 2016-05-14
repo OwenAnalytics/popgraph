@@ -28,8 +28,8 @@ to_matrix <- function( x, mode=c("adjacency","shortest path","edge weight")[1], 
   else if( mode=="edge weight")
     ret <- get.adjacency( x, attr="weight", sparse=FALSE,... ) 
   
-  if( length( V(x)$name ))
-    rownames(ret) <- colnames(ret) <- V(x)$name 
+  if( length( igraph::V(x)$name ))
+    rownames(ret) <- colnames(ret) <- igraph::V(x)$name 
   
   return( ret )
 }

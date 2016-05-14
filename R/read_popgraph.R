@@ -41,8 +41,8 @@ read.popgraph <- function( file, sep="\t" ) {
   
   rownames(A) <- colnames(A) <- names
   graph <- graph.adjacency( A, mode="undirected", weighted=TRUE)
-  V(graph)$size <- sizes 
-  V(graph)$color <- colors
+  igraph::V(graph)$size <- sizes 
+  igraph::V(graph)$color <- colors
   
   class(graph) <- c("igraph","popgraph")
   return( graph )

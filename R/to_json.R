@@ -41,7 +41,7 @@ to_json <- function( graph, file ) {
   node.attr.names <- list.vertex.attributes( graph )
   if( !("name" %in% node.attr.names) )
     stop("Vertices are indexed by the property 'name' and your graph does not have one...")
-  nodes <- data.frame( name=rep("libby",length(V(graph))) )
+  nodes <- data.frame( name=rep("libby",length(igraph::V(graph))) )
   for( attr in node.attr.names )
     nodes[[attr]] <- get.vertex.attribute( graph, attr )
   if( !("group" %in% names(nodes) ) )
@@ -55,7 +55,7 @@ to_json <- function( graph, file ) {
     graph <- set.edge.attribute(graph,"weight", value=5)
   wts <- as.matrix(get.adjacency(graph, attr="weight"))
   idx <- 1
-  N <- length(V(graph))
+  N <- length(igraph::V(graph))
   for( i in 1:N){
     for( j in i:N) {
       if(wts[i,j] > 0 ) {

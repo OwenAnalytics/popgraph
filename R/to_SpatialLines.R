@@ -14,7 +14,7 @@ to_SpatialLines <- function( graph, latitude="Latitude", longitude="Longitude", 
   if( !inherits(graph,"popgraph"))
     stop("This function requires a popgraph object to function")
   
-  names <- V(graph)$name
+  names <- igraph::V(graph)$name
   
   vertex.attr <- list.vertex.attributes( graph )
   if( !(latitude %in% vertex.attr ) | !(longitude %in% vertex.attr) )

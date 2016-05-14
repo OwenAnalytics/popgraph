@@ -6,6 +6,7 @@ test_that("testing", {
   if( file == "")
     file <- "/Users/rodney/Documents/Dropbox/R/popgraph/popgraph/inst/extdata/lopho.pgraph"
   
+  require(igraph)
   graph <- read.popgraph( file )
   
   

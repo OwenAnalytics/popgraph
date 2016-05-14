@@ -14,7 +14,7 @@
 #' @author Rodney J. Dyer <rjdyer@@vcu.edu>
 #' @export
 test_congruence <- function( graph1, graph2, method=c("distance","combinatorial")[1] ) {
-  cong.nodes <- intersect( V(graph1)$name , V(graph2)$name )
+  cong.nodes <- intersect( igraph::V(graph1)$name , igraph::V(graph2)$name )
   
   if( is.null(cong.nodes) )
     stop("There appear to be no nodes in common between these two graphs")
@@ -54,7 +54,7 @@ test_congruence <- function( graph1, graph2, method=c("distance","combinatorial"
     mA <- length( E(graph1) )
     mB <- length( E(graph2) )
     mC <- length( E(congruence_topology( graph1, graph2 ) ) ) 
-    N <- length( V(graph1) )
+    N <- length( igraph::V(graph1) )
     mMax <- N*(N-1)/2
     ell = mA + mB - mMax
     i <- max(0,ell):min(mA,mB)

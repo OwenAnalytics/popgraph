@@ -18,9 +18,9 @@ congruence_topology <- function( graph1, graph2, warn.nonoverlap=TRUE ) {
   if( warn.nonoverlap & length(setdiff( V(graph1)$name, V(graph2)$name )))
     warning("These two topologies have non-overlapping node sets!  Careful on interpretation.")
   
-  nodes <- V(graph1)$name
+  nodes <- igraph::V(graph1)$name
   for( i in 1:length(nodes)){
-    if( !(nodes[i] %in% V(graph2)$name))
+    if( !(nodes[i] %in% igraph::V(graph2)$name))
       nodes[i] <- NA
   }
   cong.nodes <- nodes[ !is.na(nodes) ]

@@ -21,7 +21,7 @@ to_SpatialPoints<- function( x, stratum="Name", longitude="Longitude", latitude=
   
   coords <- cbind( x=get.vertex.attribute( x, longitude ),
                    y=get.vertex.attribute( x, latitude) )
-  rownames( coords ) <- V(x)$name 
+  rownames( coords ) <- igraph::V(x)$name 
   pts <- SpatialPoints(coords)
   
   return( pts )

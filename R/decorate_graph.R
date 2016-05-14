@@ -27,7 +27,7 @@ decorate_graph <- function( graph, data, stratum="Population" ) {
     }
     
     
-    node.labels <- V(graph)$name 
+    node.labels <- igraph::V(graph)$name 
     num.nodes <- length( node.labels )
     
     data <- data[ (data[[stratum]] %in% node.labels) , ]

@@ -2,7 +2,7 @@
 #' 
 #' This function randomizes the edges in a popgraph and 
 #'  returns a new graph.
-#' @param graph An object of type \class{popgraph} or \class{igraph}
+#' @param graph An object of type \code{popgraph} or \code{igraph}
 #' @param mode The kind of randomization to conduct, can be "full"
 #'  which makes a new graph with the same number of edges as the 
 #'  original one, or "

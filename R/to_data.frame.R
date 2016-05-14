@@ -12,7 +12,7 @@ to_data.frame <- function( x, ... ){
     stop("What are you passing to to_data.frame()?")
   
   cols <- list.vertex.attributes( x )
-  ret <- data.frame( vertex.id=seq(1,length(V(x))))
+  ret <- data.frame( vertex.id=seq(1,length(igraph::V(x))))
   if( length(cols) > 0 ) {
     ret[[cols[1]]] <- get.vertex.attribute(x,name=cols[1])
     for( i in 2:length(x))

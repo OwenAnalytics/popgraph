@@ -74,9 +74,11 @@ to_kml <- function( graph, file ) {
   ret <- c(ret, "\t<name>Nodes</name>")
   ret <- c(ret, "\t<description>All the nodes from the graph file.</description>")
   
-  K <- length(V(graph))
+  K <- length(igraph::V(graph))
   for( i in 1:K) {
-    place <- kml.placemark( V(graph)$name[i], V(graph)$Longitude[i],V(graph)$Latitude[i] )
+    place <- kml.placemark( igraph::V(graph)$name[i], 
+                            igraph::V(graph)$Longitude[i],
+                            igraph::V(graph)$Latitude[i] )
     ret <- c(ret, place)
     
   }
@@ -92,11 +94,11 @@ to_kml <- function( graph, file ) {
   for(i in 1:K){
     for(j in i:K){
       if( A[i,j] > 0 ){
-        name <- paste(V(graph)$name[i],V(graph)$name[j],sep="-")
-        lat1 <- V(graph)$Latitude[i]
-        lat2 <- V(graph)$Latitude[j]
-        lon1 <- V(graph)$Longitude[i]
-        lon2 <- V(graph)$Longitude[j]
+        name <- paste(igraph::V(graph)$name[i],igraph::V(graph)$name[j],sep="-")
+        lat1 <- igraph::V(graph)$Latitude[i]
+        lat2 <- igraph::V(graph)$Latitude[j]
+        lon1 <- igraph::V(graph)$Longitude[i]
+        lon2 <- igraph::V(graph)$Longitude[j]
         line <- kml.line(name,lat1,lat2,lon1,lon2)
         ret <- c(ret, line)
       }

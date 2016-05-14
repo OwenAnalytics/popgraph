@@ -70,14 +70,14 @@ geom_edgelabels<- function( mapping=NULL, graph=NULL, directed=FALSE, offset=c(0
   x <- get.vertex.attribute(graph,mapping$x)
   y <- get.vertex.attribute(graph,mapping$y)
   if( is.null(get.vertex.attribute(graph,"name")))
-    V(graph)$name <- paste("node",1:length(V(graph)), sep="-")
+    igraph::V(graph)$name <- paste("node",1:length(igraph::V(graph)), sep="-")
   
   
   # find the coordinates to all the segments and make into a data.frame
   layout <- matrix(cbind( x, y ), ncol=2)
   colnames(layout) <- c("X1","X2")
   rownames(layout) <- V(graph)$name
-  coords <- data.frame(name=V(graph)$name, X1=layout[,1], X2=layout[,2])  
+  coords <- data.frame(name=igraph::V(graph)$name, X1=layout[,1], X2=layout[,2])  
   edgelist <- get.edgelist(graph)
   df <- data.frame( coords[edgelist[,1],2:3], coords[edgelist[,2],2:3] )
   colnames(df) <- c("X1","Y1","X2","Y2")

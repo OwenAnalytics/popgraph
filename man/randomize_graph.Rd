@@ -7,7 +7,7 @@
 randomize_graph(graph = NULL, mode = c("full", "degree")[2])
 }
 \arguments{
-\item{graph}{An object of type \class{popgraph} or \class{igraph}}
+\item{graph}{An object of type \code{popgraph} or \code{igraph}}
 
 \item{mode}{The kind of randomization to conduct, can be "full"
 which makes a new graph with the same number of edges as the 

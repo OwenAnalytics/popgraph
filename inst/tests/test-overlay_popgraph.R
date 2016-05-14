@@ -8,7 +8,7 @@ test_that("tests", {
   
   g <- as.popgraph( A )
   
-  #require(maps)
+  require(igraph)
   #map("state")
   #overlay_popgraph( g )  
   

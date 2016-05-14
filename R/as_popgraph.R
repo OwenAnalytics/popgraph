@@ -12,9 +12,9 @@ as.popgraph <- function(graph) {
     
     ret <- igraph::graph.adjacency( graph, mode="undirected",weighted=TRUE) 
     if( is.null(colnames( graph )) )
-      V(ret)$name <- as.character(paste("node",seq(1,ncol(graph)), sep="-"))
+      igraph::V(ret)$name <- as.character(paste("node",seq(1,ncol(graph)), sep="-"))
     else
-      V(ret)$name <- colnames( graph )
+      igraph::V(ret)$name <- colnames( graph )
   }
   
   if( is(graph,"igraph")) {

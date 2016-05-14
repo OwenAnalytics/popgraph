@@ -25,7 +25,7 @@
   if( is.na(e1) || is.na(e2))
     stop("Cannot subtract missing popgraph objects.")
   
-  if( length(setdiff(V(e1)$name, V(e2)$name)) ) 
+  if( length(setdiff(igraph::V(e1)$name, igraph::V(e2)$name)) ) 
     stop("You need to have identical node sets to perform a subtraction operation.")
   
   A1 <- to_matrix( e1, mode="adjacency" )

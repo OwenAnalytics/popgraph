@@ -34,7 +34,7 @@ geom_edgeset<- function( mapping=NULL, graph=NULL, directed=FALSE, ... ) {
   # take care of directed.
   if( directed ) {
     d <- get.adjacency(graph,type="both",attr="weight",sparse=FALSE)
-    K <- length( V(graph) )
+    K <- length( igraph::V(graph) )
     for( i in 1:K ){
       for( j in i:K ) {
         if( d[i,j] > 0 & d[j,i] > 0 ){
@@ -66,14 +66,14 @@ geom_edgeset<- function( mapping=NULL, graph=NULL, directed=FALSE, ... ) {
   x <- get.vertex.attribute(graph,mapping$x)
   y <- get.vertex.attribute(graph,mapping$y)
   if( is.null(get.vertex.attribute(graph,"name")))
-    V(graph)$name <- paste("node",1:length(V(graph)), sep="-")
+    igraph::V(graph)$name <- paste("node",1:length(igraph::V(graph)), sep="-")
   
   
   # find the coordinates to all the segments and make into a data.frame
   layout <- matrix(cbind( x, y ), ncol=2)
   colnames(layout) <- c("X1","X2")
-  rownames(layout) <- V(graph)$name
-  coords <- data.frame(name=V(graph)$name, X1=layout[,1], X2=layout[,2])  
+  rownames(layout) <- igraph::V(graph)$name
+  coords <- data.frame(name=igraph::V(graph)$name, X1=layout[,1], X2=layout[,2])  
   edgelist <- get.edgelist(graph)
   df <- data.frame( coords[edgelist[,1],2:3], coords[edgelist[,2],2:3] )
   colnames(df) <- c("X1","Y1","X2","Y2")

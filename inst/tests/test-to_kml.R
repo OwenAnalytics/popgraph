@@ -7,6 +7,7 @@ test_that("tests",{
   
   rownames(a) <- c("Olympia","St. Louis", "Ames","Richmond")
   
+  require(igraph)
   graph <- as.popgraph( a )
   
   expect_that( to_kml( "bob" ), throws_error() )
