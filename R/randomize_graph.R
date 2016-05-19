@@ -15,23 +15,33 @@ randomize_graph <- function( graph=NULL, mode=c("full","degree")[2] ) {
 
   
   if( mode == "full"){
-    num_edges <- length( igraph::E(graph ) ) 
-    nodes <- igraph::V(graph)$name
-    edge_list <- NULL
-    
-    for( i in 1:num_edges ) {
-      
-      
-      nodes <- sample( nodes, size=length(nodes), replace=FALSE)
-      
-      
-      edge_list <- rbind( edge_list, c(nodes[1:2]))
-    }
-    g <- igraph::graph.edgelist(edge_list, directed=FALSE )
-    plot(g)    
+    e <- igraph::as_adj(graph,sparse = FALSE)
+    vals <- e[ lower.tri(e)]
+    new_vals <- sample( vals, size=length(vals), replace=FALSE) 
+    a <- matrix(0, nrow=nrow(e), ncol=ncol(e))
+    a[ lower.tri(a)] <- new_vals
+    a <- a + t(a)
+    g <- igraph::graph.adjacency(a,mode = "undirected" )
+    return( g )
   } 
   else if( mode == "degree" ){
+    e <- igraph::as_edgelist(graph)
     
+    v1 <- sort( e[,1] )
+    v2 <- sample( v2[,2], size=length(v2), replace=FALSE)
+    
+    new_edges <- cbind( v1, v2 )
+    ctr <- 0 
+    while( any(duplicated(new_edges)) || any( new_edges[,1] == new_edges[,2]) ) {
+      new_edges <- cbind( v1, sample( v2, size=length(v2), replace=FALSE) )  
+      ctr <- ctr + 1
+      if( ctr > 10000 ) {
+        stop("Error: Over 100 iterations for finding permutations without duplication or self-loops.  This may not be a real enough graph to do this routine.")
+      }
+    }
+    
+    g <- igraph::graph.edgelist( new_edges, directed=FALSE )
+    return(g)
   }
   
   stop("Unknown mode to randomize_graph")
