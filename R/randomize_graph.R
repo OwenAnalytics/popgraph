@@ -10,6 +10,7 @@
 #' 
 
 randomize_graph <- function( graph=NULL, mode=c("full","degree")[2] ) {
+  
   if( is.null(graph))
     stop("Cannot run without a network")
 
@@ -28,7 +29,7 @@ randomize_graph <- function( graph=NULL, mode=c("full","degree")[2] ) {
     e <- igraph::as_edgelist(graph)
     
     v1 <- sort( e[,1] )
-    v2 <- sample( v2[,2], size=length(v2), replace=FALSE)
+    v2 <- sample( e[,2], size=length(v1), replace=FALSE)
     
     new_edges <- cbind( v1, v2 )
     ctr <- 0 
