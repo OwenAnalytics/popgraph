@@ -41,6 +41,11 @@ randomize_graph <- function( graph=NULL, mode=c("full","degree")[2] ) {
       }
     }
     
+    if( any( duplicated(new_edges))){
+      print(cbind( new_edges,duplicated(new_edges)))
+      stop("Problem reaching convergence, try again.")
+    }
+    
     g <- igraph::graph.edgelist( new_edges, directed=FALSE )
     return(g)
   }
