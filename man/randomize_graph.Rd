@@ -11,7 +11,8 @@ randomize_graph(graph = NULL, mode = c("full", "degree")[2])
 
 \item{mode}{The kind of randomization to conduct, can be "full"
 which makes a new graph with the same number of edges as the 
-original one, or "}
+original one, or "degree" which preserves the degree distribution
+of the}
 }
 \description{
 This function randomizes the edges in a popgraph and 

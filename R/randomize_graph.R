@@ -7,7 +7,7 @@
 #'  which makes a new graph with the same number of edges as the 
 #'  original one, or "degree" which preserves the degree distribution
 #'  of the 
-#' 
+#' @export
 
 randomize_graph <- function( graph=NULL, mode=c("full","degree")[2] ) {
   
