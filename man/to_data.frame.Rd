@@ -4,10 +4,16 @@
 \alias{to_data.frame}
 \title{Converts \code{popgraph} to \code{data.frame} based upon node attributes}
 \usage{
-to_data.frame(x, ...)
+to_data.frame(x, mode = c("nodes", "edges")[1], as.named = TRUE, ...)
 }
 \arguments{
 \item{x}{The \code{popgraph} to grab stuff from.}
+
+\item{mode}{An indication of what to return, a \code{data.frame} of node (the default) 
+or edge properties.}
+
+\item{as.named}{A flag (default \code{TRUE}) indicating whether the nodes are returned
+as indices or names.}
 
 \item{...}{Ignored (generally).}
 }

@@ -20,7 +20,8 @@ Imports:
     MASS,
     sp,
     Matrix,
-    sampling
+    sampling,
+    networkD3
 Suggests:
     testthat,
     maps,
