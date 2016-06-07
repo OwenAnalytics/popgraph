@@ -8,7 +8,7 @@
 #'  with an extra class property)
 #' @author Rodney J. Dyer <rjdyer@@vcu.edu>
 #' @export
-read.popgraph <- function( file, sep="\t" ) { 
+read_popgraph <- function( file, sep="\t" ) { 
     
   # load in the raw stuff
   raw <- read.table( file,header=FALSE, stringsAsFactors=FALSE,sep=sep,fill=TRUE)
