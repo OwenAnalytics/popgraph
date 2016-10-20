@@ -1,4 +1,4 @@
-context("read.popgraph.R")
+context("read_popgraph.R")
 
 test_that("testing", {
 
@@ -7,7 +7,7 @@ test_that("testing", {
     file <- "/Users/rodney/Documents/Dropbox/R/popgraph/popgraph/inst/extdata/lopho.pgraph"
   
   require(igraph)
-  graph <- read.popgraph( file )
+  graph <- read_popgraph( file )
   
   
   expect_that( graph, is_a("igraph") )
