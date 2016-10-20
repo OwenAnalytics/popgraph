@@ -31,8 +31,6 @@ theme_empty <- function (base_size = 12, base_family = "Helvetica"){
       axis.ticks = element_blank(),
       axis.title = element_blank(), 
       axis.title.y = element_text(angle = 90, vjust = 0.5), 
-      axis.ticks.length = grid::unit(0.3, "lines"), 
-      axis.text.margin = grid::unit(0.5, "lines"),   
       panel.background = element_rect(fill = "transparent", colour = NA), 
       panel.border = element_blank(), 
       panel.grid.major = element_blank(), 
