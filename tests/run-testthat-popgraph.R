@@ -1,3 +1,3 @@
-require(testthat)
-require(igraph)
-test_package("popgraph")
+library(testthat)
+library(igraph)
+test_check("popgraph")

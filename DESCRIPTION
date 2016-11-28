@@ -21,7 +21,8 @@ Imports:
     sp,
     Matrix,
     sampling,
-    networkD3
+    networkD3,
+    gstudio
 Suggests:
     testthat,
     maps,
