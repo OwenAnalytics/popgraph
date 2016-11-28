@@ -1,7 +1,16 @@
 #' Determines of edges are stretched or compressed and adds attribute
 #'  to popgraph object.
-#'  
-
+#' 
+#' This function measure the deviation of edges in physical space from the expected 
+#'   value given by the genetic distance.
+#' @param graph A \code{popgraph} object
+#' @param latitude The name of the node property that has the value of the latitude for
+#'   that node (default 'Latitude').
+#' @param longitude The name of the edge property that has the longitude (default 'Longitude')
+#' @return A copy of the graph with new properties 'contortion' (the magnitude of differences
+#'   between genetic and physical distances) and 'stretch' (as 'Compressed' or 'Extended')
+#' @export
+#' @author Rodney J. Dyer \email{rjdyer@@vcu.edu}
 edge_contortion <- function( graph, latitude="Latitude", longitude="Longitude"){
   if( !is(graph,"popgraph"))
     stop("This function only works with Population Graph objects")
