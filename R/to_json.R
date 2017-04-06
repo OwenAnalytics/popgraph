@@ -50,9 +50,9 @@ to_json <- function( graph, file ) {
   
   # make the edges
   K <- length(E(graph))
-  edgedf <- data.frame( source=rep(1,K), target=rep(1,K) )
-  if( "weight" %in% list.edge.attributes(graph))
-    graph <- set.edge.attribute(graph,"weight", value=5)
+  edgedf <- data.frame( source=rep(1,K), target=rep(1,K), weight=1)
+  if( !("weight" %in% list.edge.attributes(graph)))
+    graph <- set.edge.attribute(graph,"weight", value=1)
   wts <- as.matrix(get.adjacency(graph, attr="weight"))
   idx <- 1
   N <- length(igraph::V(graph))
@@ -61,6 +61,7 @@ to_json <- function( graph, file ) {
       if(wts[i,j] > 0 ) {
         edgedf$source[idx] <- (i-1)
         edgedf$target[idx] <- (j-1)
+        edgedf$weight[idx] <- wts[i,j]
         idx <- idx + 1
       }
     }
