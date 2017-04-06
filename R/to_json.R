@@ -4,10 +4,12 @@
 #'  and converts it to a json format for use on the web.
 #' @param graph An object of type \code{igraph}
 #' @param file A file to write the output to (default missing)
+#' @param forJS A flag to indicate putting a 'var myjson = ' part 
+#'  the file.
 #' @return A textual json representation of the graph
 #' @author Rodney J. Dyer <rjdyer@@vcu.edu>
 #' @export
-to_json <- function( graph, file ) {
+to_json <- function( graph, file, forJS=FALSE ) {
   
   if( !inherits(graph,"popgraph"))
     stop("This function requires a popgraph object to function")
@@ -68,8 +70,12 @@ to_json <- function( graph, file ) {
   }
   edgestr <- quotify(edgedf)
   
-  ret <- paste("var myjson = '{ \"nodes\":", nodestr, ", \"links\":",edgestr,"}';", sep="")
   
+  if( forJS )
+    ret <- paste("var myjson = '{ \"nodes\":", nodestr, ", \"links\":",edgestr,"}';", sep="")
+  else 
+    ret <- paste("{\n \"nodes\":", nodestr, ", \"links\":",edgestr,"\n}", sep="")
+    
   if( !missing(file) )
     write(ret,file=file)
   else
