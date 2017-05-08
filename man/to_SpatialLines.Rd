@@ -26,4 +26,3 @@ This is a convienence function that takes the edge set and returns a
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

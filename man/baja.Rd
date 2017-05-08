@@ -9,4 +9,3 @@ This is metadata associated with the sampling locations
  for the Lophocereus and Upiga data sets.
 }
 \keyword{data}
-

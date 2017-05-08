@@ -28,4 +28,3 @@ Returns spatial points object
 \author{
 Rodney J. Dyer \email{rjdyer@vcu.edu}
 }
-

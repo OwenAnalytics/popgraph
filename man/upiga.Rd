@@ -9,4 +9,3 @@ This is the population graph for the Upiag data
  that is currently unpublished.
 }
 \keyword{data}
-

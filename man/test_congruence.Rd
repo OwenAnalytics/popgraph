@@ -28,4 +28,3 @@ This function makes the shortest path matrices for both
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

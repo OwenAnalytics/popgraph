@@ -19,4 +19,3 @@ This is a simple conversion routine for \code{matrix} or \code{igraph}
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

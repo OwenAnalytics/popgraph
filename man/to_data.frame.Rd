@@ -27,4 +27,3 @@ This is a quick conversion of vertex attributes to a \code{data.frame}, essentia
 \author{
 Rodney J. Dyer \email{rjdyer@vcu.edu}
 }
-

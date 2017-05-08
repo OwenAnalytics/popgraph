@@ -44,4 +44,3 @@ p + geom_edgelabels(aes(x=x,y=y,label=Label),graph,color="red", offset=c(.005,-0
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

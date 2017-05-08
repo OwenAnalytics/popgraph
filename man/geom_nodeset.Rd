@@ -38,4 +38,3 @@ ggplot() + geom_nodeset( aes(x=x,y=y,color=group), graph, size=4 )
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

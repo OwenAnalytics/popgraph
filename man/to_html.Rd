@@ -23,4 +23,3 @@ This function takes a population graph that has been 'decorated' with
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

@@ -36,4 +36,3 @@ This function is a chokepoint for exporting
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

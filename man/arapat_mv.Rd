@@ -8,4 +8,3 @@
 This is the Araptus attenuatus data in mv format
 }
 \keyword{data}
-

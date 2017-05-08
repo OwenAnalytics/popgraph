@@ -18,4 +18,3 @@ of the}
 This function randomizes the edges in a popgraph and 
  returns a new graph.
 }
-

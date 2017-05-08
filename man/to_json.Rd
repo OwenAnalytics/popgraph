@@ -4,12 +4,15 @@
 \alias{to_json}
 \title{Converts to json representation}
 \usage{
-to_json(graph, file)
+to_json(graph, file, forJS = FALSE)
 }
 \arguments{
 \item{graph}{An object of type \code{igraph}}
 
 \item{file}{A file to write the output to (default missing)}
+
+\item{forJS}{A flag to indicate putting a 'var myjson = ' part 
+the file.}
 }
 \value{
 A textual json representation of the graph
@@ -21,4 +24,3 @@ This is a nice function that takes a graph structure
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

@@ -24,4 +24,3 @@ This function uses a permutation test to look at edge stability.  What we
  do is resample individuals and re-estimate the topology several times. This
  provides an estimate of edge stability.
 }
-

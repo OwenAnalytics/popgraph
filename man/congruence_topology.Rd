@@ -25,4 +25,3 @@ Takes two graphs and returns topology that is
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

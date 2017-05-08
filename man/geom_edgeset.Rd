@@ -39,4 +39,3 @@ ggplot() + geom_edgeset( aes(x=x,y=y), graph, directed=TRUE, arrow=arrow(length=
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

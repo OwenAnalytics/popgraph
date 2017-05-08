@@ -21,4 +21,3 @@ This is a convience function for a reduce and distance operation based upon
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

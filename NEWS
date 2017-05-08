@@ -1,3 +1,7 @@
+version 1.5
+---------------
+* [FIX] Removed dependency on gstudio package due to a circular require problem.
+
 version 1.4
 ---------------
 * [ADD] Added geom_edgelabel() to overlay labels on edges...

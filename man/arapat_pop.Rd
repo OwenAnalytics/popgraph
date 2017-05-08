@@ -8,4 +8,3 @@
 The population strata for the arapat_mv data
 }
 \keyword{data}
-

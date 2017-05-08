@@ -22,4 +22,3 @@ This function imports a popgraph from the older text format
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

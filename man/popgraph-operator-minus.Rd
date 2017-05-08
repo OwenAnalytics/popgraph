@@ -34,4 +34,3 @@ par(mfrow=c(1,1))
 \author{
 Rodney J. Dyer \email{rjdyer@vcu.edu}
 }
-

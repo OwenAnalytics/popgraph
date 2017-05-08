@@ -24,4 +24,3 @@ This is a simple function that takes the graph and
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

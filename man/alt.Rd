@@ -10,4 +10,3 @@ This is a raster file for altitude in the Sonoran desert
  sets.
 }
 \keyword{data}
-

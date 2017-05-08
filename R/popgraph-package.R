@@ -34,10 +34,10 @@
 #' @import Matrix
 #' @import sampling
 #' @importFrom graphics lines points text
-#' @importFrom methods is
 #' @importFrom stats cor.test cov prcomp qchisq var
 #' @importFrom utils read.table write.csv
 #' @importFrom sp Lines Line SpatialPoints SpatialLines bbox
+#' @importFrom methods is
 #' @name popgraph-package
 #' @rdname popgraph-package
 #'

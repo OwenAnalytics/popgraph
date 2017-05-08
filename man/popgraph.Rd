@@ -26,4 +26,3 @@ This function is the default constructor for \code{PopulationGraph} objects.  Me
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

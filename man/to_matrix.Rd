@@ -30,4 +30,3 @@ This function translates a Population to a matrix representing either
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

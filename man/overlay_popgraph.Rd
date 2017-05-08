@@ -17,4 +17,3 @@ This is a quick convienence function for plotting nodes and edges
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

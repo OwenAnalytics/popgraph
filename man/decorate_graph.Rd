@@ -26,4 +26,3 @@ This function takes a data frame and a popgraph object and attempts to add
 \author{
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
-

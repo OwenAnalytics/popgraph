@@ -27,4 +27,3 @@ There are some very good examples of the components of this package are used
 Rodney J. Dyer <rjdyer@vcu.edu>
 }
 \keyword{package}
-

@@ -5,7 +5,8 @@
 \title{Determines of edges are stretched or compressed and adds attribute
  to popgraph object.}
 \usage{
-edge_contortion(graph, latitude = "Latitude", longitude = "Longitude")
+edge_contortion(graph, latitude = "Latitude", longitude = "Longitude",
+  P = NULL)
 }
 \arguments{
 \item{graph}{A \code{popgraph} object}
@@ -14,6 +15,9 @@ edge_contortion(graph, latitude = "Latitude", longitude = "Longitude")
 that node (default 'Latitude').}
 
 \item{longitude}{The name of the edge property that has the longitude (default 'Longitude')}
+
+\item{P}{A non-genetic distance (physical or ecological) matrix on which the genetic distances 
+are compared.}
 }
 \value{
 A copy of the graph with new properties 'contortion' (the magnitude of differences
@@ -26,4 +30,3 @@ This function measure the deviation of edges in physical space from the expected
 \author{
 Rodney J. Dyer \email{rjdyer@vcu.edu}
 }
-
