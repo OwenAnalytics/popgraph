@@ -10,3 +10,4 @@ popgraph.Rproj
 index.html
 README.md
 ggmapTemp.png
+^cran-comments\.md$
