@@ -2,7 +2,7 @@
 % Please edit documentation in R/permute_popgraph.R
 \name{permute_popgraph}
 \alias{permute_popgraph}
-\title{Bootstraps indiviudals to see stability of graph topology.}
+\title{Bootstraps individuals to see stability of graph topology.}
 \usage{
 permute_popgraph(data, groups, nboot = 50, ...)
 }

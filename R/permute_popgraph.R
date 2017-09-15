@@ -1,4 +1,4 @@
-#' Bootstraps indiviudals to see stability of graph topology.
+#' Bootstraps individuals to see stability of graph topology.
 #'
 #' This function uses a permutation test to look at edge stability.  What we 
 #'  do is resample individuals and re-estimate the topology several times. This
