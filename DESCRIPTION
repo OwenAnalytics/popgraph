@@ -17,6 +17,7 @@ Depends:
 Imports:
     ggplot2,
     igraph,
+    lpSolve,
     MASS,
     sp,
     Matrix,
