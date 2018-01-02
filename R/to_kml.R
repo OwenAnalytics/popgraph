@@ -46,7 +46,7 @@ to_kml <- function( graph, file ) {
     return(r)  
   }
   
-  ret <- "<?xml version=\"1.0\" encoding=\"UTF-8\"?>"
+  ret <- "<?xml version=\"1.0\" ?>"
   ret <- c(ret, "<kml xmlns=\"http://www.opengis.net/kml/2.2\">")
   ret <- c(ret, "\t<Document>")
   ret <- c(ret, paste("\t<name>PopGraph: ",deparse(substitute(graph)),"</name>",sep=""))
