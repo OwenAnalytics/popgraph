@@ -69,24 +69,8 @@ to_geojson <- function( graph, file ) {
     ret <- append( ret, feature )
   }
   
-  
-  
   # Edges
   dfe <- to_df(graph, mode="edges")
-  
-  # { "type": "Feature",
-  #   "geometry": {
-  #     "type": "LineString",
-  #     "coordinates": [
-  #       [102.0, 0.0], [103.0, 1.0], [104.0, 0.0], [105.0, 1.0]
-  #       ]
-  #   },
-  #   "properties": {
-  #     "prop0": "value0",
-  #     "prop1": 0.0
-  #   }
-  # },
-  
   edges <- character(0)
   for( i in 1:nrow(dfe) ) {
     e <- '  {"type": "Feature",\n   "geometry": {\n    "type": "LineString",'
@@ -135,17 +119,5 @@ to_geojson <- function( graph, file ) {
   
   return( ret )
 }
-
-
-
-
-library(popgraph)
-data(lopho)
-data(baja)
-graph <- decorate_graph(lopho,baja)
-
-json <- to_geojson(graph)
-cat(json)
-
 
 
