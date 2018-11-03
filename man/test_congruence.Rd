@@ -4,7 +4,8 @@
 \alias{test_congruence}
 \title{Returns distance congruence between the two graphs}
 \usage{
-test_congruence(graph1, graph2, method = c("distance", "combinatorial")[1])
+test_congruence(graph1, graph2, method = c("distance",
+  "combinatorial")[1])
 }
 \arguments{
 \item{graph1}{An object of type \code{igraph} or \code{popgraph}}

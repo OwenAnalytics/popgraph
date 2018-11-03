@@ -4,7 +4,8 @@
 \alias{to_SpatialLines}
 \title{Converts edge set to SpatialLines object}
 \usage{
-to_SpatialLines(graph, latitude = "Latitude", longitude = "Longitude", ...)
+to_SpatialLines(graph, latitude = "Latitude", longitude = "Longitude",
+  ...)
 }
 \arguments{
 \item{graph}{An object of type \code{popgraph}. This graph must already

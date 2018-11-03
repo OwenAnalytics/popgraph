@@ -58,7 +58,7 @@ geom_edgelabels<- function( mapping=NULL, graph=NULL, directed=FALSE, offset=c(0
   edge.attr <- c(list.edge.attributes(graph),list.vertex.attributes(graph))
   mappingNames <- names(mapping)[ names(mapping) != "label"]
   for( name in mappingNames) {
-    key <- as.character(mapping[[name]])
+    key <- as.character(mapping[[name]])[2]
     if( !(key %in% edge.attr))
       stop(paste("Aesthetic mapping variable ",key," was not found in the edge attributes of this graph",sep=""))
   }
@@ -67,8 +67,8 @@ geom_edgelabels<- function( mapping=NULL, graph=NULL, directed=FALSE, offset=c(0
   
   X1 <- X2 <- Y1 <- Y2 <- size <- x <- y <- color <- colour <- NULL
   
-  x <- get.vertex.attribute(graph,mapping$x)
-  y <- get.vertex.attribute(graph,mapping$y)
+  x <- get.vertex.attribute(graph, as.character( mapping$x)[2] ) 
+  y <- get.vertex.attribute(graph, as.character( mapping$y)[2] )
   if( is.null(get.vertex.attribute(graph,"name")))
     igraph::V(graph)$name <- paste("node",1:length(igraph::V(graph)), sep="-")
   
@@ -82,7 +82,7 @@ geom_edgelabels<- function( mapping=NULL, graph=NULL, directed=FALSE, offset=c(0
   df <- data.frame( coords[edgelist[,1],2:3], coords[edgelist[,2],2:3] )
   colnames(df) <- c("X1","Y1","X2","Y2")
   
-  vals <- get.edge.attribute( graph, as.character(mapping$label) )
+  vals <- get.edge.attribute( graph, as.character(mapping$label)[2] )
   vals <- format( vals, digits=4)
   df.lbls <- data.frame( X=(df$X1+df$X2)/2 + offset[1], Y=(df$Y1+df$Y2)/2 + offset[2], label=format(vals,digits=4) )
   

@@ -4,7 +4,8 @@
 \alias{to_matrix}
 \title{Matrix conversion for Population Graph}
 \usage{
-to_matrix(x, mode = c("adjacency", "shortest path", "edge weight")[1], ...)
+to_matrix(x, mode = c("adjacency", "shortest path", "edge weight")[1],
+  ...)
 }
 \arguments{
 \item{x}{An object of type \code{popgraph}}

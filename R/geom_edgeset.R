@@ -18,13 +18,16 @@
 #' graph <- as.popgraph(a)
 #' igraph::V(graph)$x <- runif(4)
 #' igraph::V(graph)$y <- runif(4)
+#' igraph::E(graph)$weight <- 1 + rpois(4,2)
 #' require(ggplot2)
 #' ggplot() + geom_edgeset( aes(x=x,y=y), graph )
 #' ggplot() + geom_edgeset( aes(x=x,y=y), graph, color="darkblue" )
+#' ggplot() + geom_edgeset( aes(x=x,y=y, size=weight), graph, color="darkblue" )
 #' require(grid)
 #' ggplot() + geom_edgeset( aes(x=x,y=y), graph, directed=TRUE, arrow=arrow(length=unit(0.5,"cm")) )
 geom_edgeset<- function( mapping=NULL, graph=NULL, directed=FALSE, ... ) {
   X <- Y <- NULL
+  
   # catch errors with missing 
   if( is.null(mapping))
     stop("You need at least aes(x,y) for aesthetic mapping in this function.")
@@ -52,19 +55,19 @@ geom_edgeset<- function( mapping=NULL, graph=NULL, directed=FALSE, ... ) {
   
   # grab mapping labels not in the vertex attributes
   edge.attr <- c(list.edge.attributes(graph),list.vertex.attributes(graph))
-  mappingNames <- names(mapping)[ names(mapping) != "label"]
-  for( name in mappingNames) {
-    key <- as.character(mapping[[name]])
-    if( !(key %in% edge.attr))
-      stop(paste("Aesthetic mapping variable ",key," was not found in the edge attributes of this graph",sep=""))
-  }
+  # mappingNames <- names(mapping)[ names(mapping) != "label"]
+  # for( name in mappingNames) {
+  #   key <- as.character(mapping[[name]])
+  #   if( !(key %in% edge.attr))
+  #     stop(paste("Aesthetic mapping variable ",key," was not found in the edge attributes of this graph",sep=""))
+  # }
   if( is.null(mapping$x) | is.null(mapping$y))
     stop("To plot a graph, you need coordinates and they must be attributes of the vertices in the graph.")
   
   X1 <- X2 <- Y1 <- Y2 <- size <- x <- y <- color <- colour <- NULL
   
-  x <- get.vertex.attribute(graph,mapping$x)
-  y <- get.vertex.attribute(graph,mapping$y)
+  x <- get.vertex.attribute(graph, as.character(mapping$x)[2])
+  y <- get.vertex.attribute(graph, as.character(mapping$y)[2])
   if( is.null(get.vertex.attribute(graph,"name")))
     igraph::V(graph)$name <- paste("node",1:length(igraph::V(graph)), sep="-")
   
@@ -79,19 +82,19 @@ geom_edgeset<- function( mapping=NULL, graph=NULL, directed=FALSE, ... ) {
   colnames(df) <- c("X1","Y1","X2","Y2")
   
   if( !is.null(mapping$size) & (!is.null(mapping$color) | !is.null(mapping$colour))) {
-    df$size <- get.edge.attribute(graph,mapping$size)
-    df$color <- get.edge.attribute( graph, mapping$colour )
+    df$size <- get.edge.attribute(graph, as.character(mapping$size)[2]) 
+    df$color <- get.edge.attribute( graph, as.character(mapping$colour)[2]) 
     ret <- ggplot2::geom_segment( aes(x=X1,y=Y1,xend=X2,yend=Y2,size=size,color=color), data=df, ... )
   }
   
   else if( !is.null(mapping$size) ) {
-    df$size <- get.edge.attribute(graph,mapping$size)
+    df$size <- get.edge.attribute(graph,as.character(mapping$size)[2])
     ret <- ggplot2::geom_segment( aes(x=X1,y=Y1,xend=X2,yend=Y2,size=size), data=df, ... )
   }
   
   else if( (!is.null(mapping$color) | !is.null(mapping$colour))) {
     lbl <- as.character( mapping$colour)
-    df[[lbl]] <- get.edge.attribute( graph, mapping$colour )
+    df[[lbl]] <- get.edge.attribute( graph, as.character(mapping$colour)[2] )
     df <- df[ order(df[[lbl]]),]
     ret <- ggplot2::geom_segment( aes_string(x="X1",y="Y1",xend="X2",yend="Y2",color=lbl), data=df, ... )
   }

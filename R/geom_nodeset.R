@@ -36,33 +36,33 @@ geom_nodeset<- function( mapping=NULL, graph=NULL, ... ) {
 
   # grab mapping labels not in the vertex attributes
   vertex.attr <- list.vertex.attributes(graph)
-  mappingNames <- names(mapping)
-  for( name in mappingNames) {
-    key <- as.character(mapping[[name]])
-    if( !(key %in% vertex.attr))
-      stop(paste("Aesthetic mapping variable ",key," was not found in the vertex attributes of this graph",sep=""))
-  }
+  # mappingNames <- names(mapping)
+  # for( name in mappingNames) {
+  #   key <- as.character(mapping[[name]])
+  #   if( !(key %in% vertex.attr))
+  #     stop(paste("Aesthetic mapping variable ",key," was not found in the vertex attributes of this graph",sep=""))
+  # }
   
   x <- y <- color <- colour <- size <- NULL
   
-  df <- data.frame( x=get.vertex.attribute(graph,mapping$x), 
-                    y=get.vertex.attribute(graph,mapping$y),
+  df <- data.frame( x=get.vertex.attribute(graph, as.character(mapping$x)[2]), 
+                    y=get.vertex.attribute(graph, as.character(mapping$y)[2]),
                     colour="black")
   
   # size and color
-  if( !is.null(mapping$colour) & !is.null(mapping$size)){
-    df$color <- get.vertex.attribute(graph,mapping$colour)
-    df$size <- get.vertex.attribute(graph,mapping$size)
+  if( !is.null(mapping$colour) & !is.null( mapping$size)){
+    df$color <- get.vertex.attribute(graph, as.character(mapping$colour)[2])
+    df$size <- get.vertex.attribute(graph, as.character(mapping$size)[2])
     ret <- ggplot2::geom_point( aes(x=x,y=y,color=color,size=size), data=df, ... )
   }
   # size
   else if( !is.null(mapping$size)){
-    df$size <- get.vertex.attribute(graph,mapping$size)
+    df$size <- get.vertex.attribute(graph, as.character(mapping$size)[2])
     ret <- ggplot2::geom_point( aes(x=x,y=y,size=size), data=df, ... )
   }
   # color
   else if( !is.null(mapping$colour) ){
-    df$colour <- get.vertex.attribute(graph,mapping$colour)
+    df$colour <- get.vertex.attribute(graph, as.character(mapping$colour)[2])
     ret <- ggplot2::geom_point( aes(x=x,y=y,colour=colour), data=df, ... )
   }
   # none 

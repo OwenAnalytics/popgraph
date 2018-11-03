@@ -30,9 +30,11 @@ rownames(a) <- colnames(a) <- LETTERS[1:4]
 graph <- as.popgraph(a)
 igraph::V(graph)$x <- runif(4)
 igraph::V(graph)$y <- runif(4)
+igraph::E(graph)$weight <- 1 + rpois(4,2)
 require(ggplot2)
 ggplot() + geom_edgeset( aes(x=x,y=y), graph )
 ggplot() + geom_edgeset( aes(x=x,y=y), graph, color="darkblue" )
+ggplot() + geom_edgeset( aes(x=x,y=y, size=weight), graph, color="darkblue" )
 require(grid)
 ggplot() + geom_edgeset( aes(x=x,y=y), graph, directed=TRUE, arrow=arrow(length=unit(0.5,"cm")) )
 }
