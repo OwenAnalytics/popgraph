@@ -23,6 +23,7 @@
 #' ggplot() + geom_edgeset( aes(x=x,y=y), graph )
 #' ggplot() + geom_edgeset( aes(x=x,y=y), graph, color="darkblue" )
 #' ggplot() + geom_edgeset( aes(x=x,y=y, size=weight), graph, color="darkblue" )
+#' ggplot() + geom_edgeset( aes(x=x,y=y, color=weight), graph, color="darkblue" )
 #' require(grid)
 #' ggplot() + geom_edgeset( aes(x=x,y=y), graph, directed=TRUE, arrow=arrow(length=unit(0.5,"cm")) )
 geom_edgeset<- function( mapping=NULL, graph=NULL, directed=FALSE, ... ) {
@@ -55,12 +56,12 @@ geom_edgeset<- function( mapping=NULL, graph=NULL, directed=FALSE, ... ) {
   
   # grab mapping labels not in the vertex attributes
   edge.attr <- c(list.edge.attributes(graph),list.vertex.attributes(graph))
-  # mappingNames <- names(mapping)[ names(mapping) != "label"]
-  # for( name in mappingNames) {
-  #   key <- as.character(mapping[[name]])
-  #   if( !(key %in% edge.attr))
-  #     stop(paste("Aesthetic mapping variable ",key," was not found in the edge attributes of this graph",sep=""))
-  # }
+  mappingNames <- names(mapping)[ names(mapping) != "label"]
+  for( name in mappingNames) {
+    key <- as.character( mapping[[name]])[2]
+    if( !(key %in% edge.attr))
+      stop(paste("Aesthetic mapping variable ",key," was not found in the edge attributes of this graph",sep=""))
+  }
   if( is.null(mapping$x) | is.null(mapping$y))
     stop("To plot a graph, you need coordinates and they must be attributes of the vertices in the graph.")
   
@@ -93,8 +94,8 @@ geom_edgeset<- function( mapping=NULL, graph=NULL, directed=FALSE, ... ) {
   }
   
   else if( (!is.null(mapping$color) | !is.null(mapping$colour))) {
-    lbl <- as.character( mapping$colour)
-    df[[lbl]] <- get.edge.attribute( graph, as.character(mapping$colour)[2] )
+    lbl <- as.character( mapping$colour)[2]
+    df[[lbl]] <- get.edge.attribute( graph, lbl )
     df <- df[ order(df[[lbl]]),]
     ret <- ggplot2::geom_segment( aes_string(x="X1",y="Y1",xend="X2",yend="Y2",color=lbl), data=df, ... )
   }
