@@ -8,12 +8,15 @@
 #' @author Rodney J. Dyer <rjdyer@@vcu.edu>
 #' @export
 centroid_variance <- function( x, grouping ){
+  
   if( !is(grouping, "factor"))
     grouping <- factor( grouping )
   N <- dim(x)[1]
+  
   if( length(grouping) != N )
-    stop("Your grouping and predictor variables should have the same number of rows....  Come on now.")
-
+    stop("Your grouping and predictor variables should ',
+         'have the same number of rows....  Come on now.")
+  
   grps <- levels( grouping) 
   K <- length(grps)
   ret <- rep(NA,K)
