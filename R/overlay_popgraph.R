@@ -8,6 +8,8 @@
 #' @author Rodney J. Dyer <rjdyer@@vcu.edu>
 #' @export
 overlay_popgraph <- function( graph ){
+  stop("Not functioning at this time, I'm in Europe and will fix when I return")
+  
   if( !is(graph,"popgraph") && !is(graph,"igraph"))
     stop("This function only works by with a population graph or igraph object")
   if( !("Longitude" %in% list.vertex.attributes(graph)))
