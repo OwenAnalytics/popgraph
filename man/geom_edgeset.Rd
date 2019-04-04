@@ -35,6 +35,7 @@ require(ggplot2)
 ggplot() + geom_edgeset( aes(x=x,y=y), graph )
 ggplot() + geom_edgeset( aes(x=x,y=y), graph, color="darkblue" )
 ggplot() + geom_edgeset( aes(x=x,y=y, size=weight), graph, color="darkblue" )
+ggplot() + geom_edgeset( aes(x=x,y=y, color=weight), graph, color="darkblue" )
 require(grid)
 ggplot() + geom_edgeset( aes(x=x,y=y), graph, directed=TRUE, arrow=arrow(length=unit(0.5,"cm")) )
 }
