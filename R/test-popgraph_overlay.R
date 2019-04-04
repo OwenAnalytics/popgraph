@@ -1,4 +1,4 @@
-context("popgraph_overlay.R")
+context("overlay_popgraph.R")
 
 test_that("testing", {
  
