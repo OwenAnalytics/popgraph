@@ -31,7 +31,10 @@ test_congruence <- function( graph1, graph2, method=c("distance","combinatorial"
     
     distances.graph1 <- Adis[lower.tri( Adis )]
     distances.graph2 <- Bdis[lower.tri( Bdis )]
-    fit <- cor.test( distances.graph1, distances.graph2 )
+    if( any(is.na(distances.graph2)) || any(is.na(distances.graph1))) {
+      warning("You have disconnected subgraphs")
+    }
+    fit <- cor.test( distances.graph1, distances.graph2 , na.rm=TRUE )
   }
   
   
